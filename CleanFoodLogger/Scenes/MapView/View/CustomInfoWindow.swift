@@ -27,7 +27,7 @@ class CustomInfoWindow: UIView {
     }
     
     internal func xibViewSet() {
-        if let view = Bundle.main.loadNibNamed("MarkerInfoContentsView", owner: self, options: nil)?.first as? UIView {
+        if let view = Bundle.main.loadNibNamed("CustomInfoWindow", owner: self, options: nil)?.first as? UIView {
             view.frame = self.bounds
             self.addSubview(view)
         }

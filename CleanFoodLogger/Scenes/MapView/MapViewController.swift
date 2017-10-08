@@ -68,6 +68,9 @@ class MapViewController: UIViewController, MapViewDisplayLogic {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        configureMapView()
+        configureLocationManager()
     }
     
     // MARK: Configuration
@@ -138,10 +141,10 @@ class MapViewController: UIViewController, MapViewDisplayLogic {
         marker.category = restaurant.category
         marker.imageURL = restaurant.imageURL
         marker.position = CLLocationCoordinate2D(latitude: restaurant.latitude, longitude: restaurant.longitude)
+        marker.icon = UIImage(named: "RestaurantIcon")
         marker.appearAnimation = GMSMarkerAnimation.pop
         marker.map = mapView
     }
-    
 }
 
 extension MapViewController: CLLocationManagerDelegate {
