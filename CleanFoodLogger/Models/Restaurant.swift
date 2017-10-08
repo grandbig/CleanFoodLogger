@@ -7,3 +7,22 @@
 //
 
 import Foundation
+
+struct Restaurant: Equatable {
+    
+    var id: String
+    var name: String
+    var category: String
+    var imageURL: String
+    var latitude: Double
+    var longitude: Double
+}
+
+func ==(lhs: Restaurant, rhs: Restaurant) -> Bool {
+    return lhs.id == rhs.id
+        && lhs.name == rhs.name
+        && lhs.category == rhs.category
+        && lhs.imageURL == rhs.imageURL
+        && lhs.latitude == rhs.latitude
+        && lhs.longitude == rhs.longitude
+}
