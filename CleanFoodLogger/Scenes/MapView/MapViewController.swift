@@ -13,15 +13,15 @@
 import UIKit
 import GoogleMaps
 
-protocol MapViewDisplayLogic: class {
-    func displayInitMap(viewModel: MapView.Init.ViewModel)
-    func displaySearchedSuccess(viewModel: MapView.Search.ViewModel)
-    func displaySearchedFailure(viewModel: MapView.Search.ViewModel)
+protocol MapDisplayLogic: class {
+    func displayInitMap(viewModel: Map.Init.ViewModel)
+    func displaySearchedSuccess(viewModel: Map.Search.ViewModel)
+    func displaySearchedFailure(viewModel: Map.Search.ViewModel)
 }
 
-class MapViewController: UIViewController, MapViewDisplayLogic {
-    var interactor: MapViewBusinessLogic?
-    var router: (NSObjectProtocol & MapViewRoutingLogic & MapViewDataPassing)?
+class MapViewController: UIViewController, MapDisplayLogic {
+    var interactor: MapBusinessLogic?
+    var router: (NSObjectProtocol & MapRoutingLogic & MapDataPassing)?
     
     @IBOutlet weak var mapView: GMSMapView!
     var locationManager: CLLocationManager?
@@ -42,9 +42,9 @@ class MapViewController: UIViewController, MapViewDisplayLogic {
     
     private func setup() {
         let viewController = self
-        let interactor = MapViewInteractor()
-        let presenter = MapViewPresenter()
-        let router = MapViewRouter()
+        let interactor = MapInteractor()
+        let presenter = MapPresenter()
+        let router = MapRouter()
         viewController.interactor = interactor
         viewController.router = router
         interactor.presenter = presenter
@@ -97,7 +97,7 @@ class MapViewController: UIViewController, MapViewDisplayLogic {
     
     // MARK: Init mapView
     
-    func displayInitMap(viewModel: MapView.Init.ViewModel) {
+    func displayInitMap(viewModel: Map.Init.ViewModel) {
         // 初期描画時のマップ中心位置の移動
         let coordinate = CLLocationCoordinate2D(latitude: viewModel.latitude, longitude: viewModel.longitude)
         let camera = GMSCameraPosition.camera(withTarget: coordinate, zoom: viewModel.zoomLevel)
@@ -110,18 +110,18 @@ class MapViewController: UIViewController, MapViewDisplayLogic {
         guard let latitude = mapView.myLocation?.coordinate.latitude, let longitude = mapView.myLocation?.coordinate.longitude else {
             return
         }
-        let request = MapView.Search.Request(latitude: latitude, longitude: longitude)
+        let request = Map.Search.Request(latitude: latitude, longitude: longitude)
         interactor?.searchRestaurants(request: request)
     }
     
-    func displaySearchedSuccess(viewModel: MapView.Search.ViewModel) {
+    func displaySearchedSuccess(viewModel: Map.Search.ViewModel) {
         let restaurants = viewModel.restaurants
         for restaurant in restaurants {
             putMarker(restaurant: restaurant)
         }
     }
     
-    func displaySearchedFailure(viewModel: MapView.Search.ViewModel) {
+    func displaySearchedFailure(viewModel: Map.Search.ViewModel) {
         showAlert(title: "確認", message: "周辺にレストランは見つかりませんでした。") {
         }
     }
@@ -167,7 +167,7 @@ extension MapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         // マップの初期描画
         if let coordinate = locations.last?.coordinate {
-            let request = MapView.Init.Request(latitude: coordinate.latitude, longitude: coordinate.longitude)
+            let request = Map.Init.Request(latitude: coordinate.latitude, longitude: coordinate.longitude)
             interactor?.initMapView(request: request)
         }
     }

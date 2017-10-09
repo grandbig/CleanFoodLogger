@@ -13,7 +13,7 @@
 import UIKit
 
 protocol ShopInformationPresentationLogic {
-    func presentSomething(response: ShopInformation.Something.Response)
+    func presentRestaurantInformation(response: ShopInformation.Load.Response)
 }
 
 class ShopInformationPresenter: ShopInformationPresentationLogic {
@@ -21,8 +21,8 @@ class ShopInformationPresenter: ShopInformationPresentationLogic {
     
     // MARK: Do something
     
-    func presentSomething(response: ShopInformation.Something.Response) {
-        let viewModel = ShopInformation.Something.ViewModel()
+    func presentRestaurantInformation(response: ShopInformation.Load.Response) {
+        let viewModel = ShopInformation.Load.ViewModel(url: response.url)
         viewController?.displaySomething(viewModel: viewModel)
     }
 }

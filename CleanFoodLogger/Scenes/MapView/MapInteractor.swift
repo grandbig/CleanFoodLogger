@@ -1,5 +1,5 @@
 //
-//  MapViewInteractor.swift
+//  MapInteractor.swift
 //  CleanFoodLogger
 //
 //  Created by Takahiro Kato on 2017/10/07.
@@ -12,25 +12,25 @@
 
 import UIKit
 
-protocol MapViewBusinessLogic {
-    func initMapView(request: MapView.Init.Request)
-    func searchRestaurants(request: MapView.Search.Request)
+protocol MapBusinessLogic {
+    func initMapView(request: Map.Init.Request)
+    func searchRestaurants(request: Map.Search.Request)
 }
 
-protocol MapViewDataStore {
+protocol MapDataStore {
     //var name: String { get set }
 }
 
-class MapViewInteractor: MapViewBusinessLogic, MapViewDataStore {
-    var presenter: MapViewPresentationLogic?
+class MapInteractor: MapBusinessLogic, MapDataStore {
+    var presenter: MapPresentationLogic?
     var worker = HotpepperWorker(hotpepper: HotpepperAPI())
     private var initView: Bool = false
     
     // MARK: Init mapView
     
-    func initMapView(request: MapView.Init.Request) {
+    func initMapView(request: Map.Init.Request) {
         if !initView {
-            let response = MapView.Init.Response(latitude: request.latitude, longitude: request.longitude)
+            let response = Map.Init.Response(latitude: request.latitude, longitude: request.longitude)
             presenter?.presentInitMapView(response: response)
             initView = true
         }
@@ -38,9 +38,9 @@ class MapViewInteractor: MapViewBusinessLogic, MapViewDataStore {
     
     // MARK: Search restaurants
     
-    func searchRestaurants(request: MapView.Search.Request) {
+    func searchRestaurants(request: Map.Search.Request) {
         worker.fetchRestaurants(latitude: request.latitude, longitude: request.longitude) { (restaurants, _) in
-            let response = MapView.Search.Response(restaurants: restaurants)
+            let response = Map.Search.Response(restaurants: restaurants)
             self.presenter?.presentSearchedRestaurants(response: response)
         }
     }

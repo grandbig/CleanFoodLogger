@@ -1,5 +1,5 @@
 //
-//  MapViewWorker.swift
+//  MapWorker.swift
 //  CleanFoodLogger
 //
 //  Created by Takahiro Kato on 2017/10/07.
@@ -12,7 +12,7 @@
 
 import UIKit
 
-class MapViewWorker {
-  func doSomeWork() {
-  }
+class MapWorker {
+    func doSomeWork() {
+    }
 }

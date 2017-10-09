@@ -11,14 +11,18 @@
 //
 
 import UIKit
+import WebKit
 
 protocol ShopInformationDisplayLogic: class {
-    func displaySomething(viewModel: ShopInformation.Something.ViewModel)
+    func displaySomething(viewModel: ShopInformation.Load.ViewModel)
 }
 
 class ShopInformationViewController: UIViewController, ShopInformationDisplayLogic {
     var interactor: ShopInformationBusinessLogic?
     var router: (NSObjectProtocol & ShopInformationRoutingLogic & ShopInformationDataPassing)?
+    
+    @IBOutlet weak var webView: WKWebView!
+    
     
     // MARK: Object lifecycle
     
@@ -62,19 +66,27 @@ class ShopInformationViewController: UIViewController, ShopInformationDisplayLog
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        doSomething()
+        loadShopInformation()
     }
     
     // MARK: Do something
     
     //@IBOutlet weak var nameTextField: UITextField!
     
-    func doSomething() {
-        let request = ShopInformation.Something.Request()
-        interactor?.doSomething(request: request)
+    func loadShopInformation() {
+        let request = ShopInformation.Load.Request()
+        interactor?.loadShopInformation(request: request)
     }
     
-    func displaySomething(viewModel: ShopInformation.Something.ViewModel) {
+    func displaySomething(viewModel: ShopInformation.Load.ViewModel) {
         //nameTextField.text = viewModel.name
     }
+}
+
+extension ShopInformationViewController: WKUIDelegate {
+    
+}
+
+extension ShopInformationViewController: WKNavigationDelegate {
+    
 }

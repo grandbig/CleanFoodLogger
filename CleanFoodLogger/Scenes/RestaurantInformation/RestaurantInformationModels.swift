@@ -1,5 +1,5 @@
 //
-//  ShopInformationModels.swift
+//  RestaurantInformationModels.swift
 //  CleanFoodLogger
 //
 //  Created by Takahiro Kato on 2017/10/09.
@@ -12,15 +12,17 @@
 
 import UIKit
 
-enum ShopInformation {
+enum RestaurantInformation {
     // MARK: Use cases
     
-    enum Something {
+    enum Load {
         struct Request {
         }
         struct Response {
+            var url: String
         }
         struct ViewModel {
+            var url: String
         }
     }
 }
