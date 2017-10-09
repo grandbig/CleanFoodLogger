@@ -39,7 +39,7 @@ class MapViewInteractor: MapViewBusinessLogic, MapViewDataStore {
     // MARK: Search restaurants
     
     func searchRestaurants(request: MapView.Search.Request) {
-        worker.fetchRestaurants(latitude: request.latitude, longitude: request.longitude) { (restaurants, error) in
+        worker.fetchRestaurants(latitude: request.latitude, longitude: request.longitude) { (restaurants, _) in
             let response = MapView.Search.Response(restaurants: restaurants)
             self.presenter?.presentSearchedRestaurants(response: response)
         }

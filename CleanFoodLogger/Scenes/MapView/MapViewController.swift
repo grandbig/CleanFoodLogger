@@ -69,6 +69,8 @@ class MapViewController: UIViewController, MapViewDisplayLogic {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "MapView"
+        
         configureMapView()
         configureLocationManager()
     }

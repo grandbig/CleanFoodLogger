@@ -273,6 +273,7 @@
 				2E6E43BD1F8A5F610014D43B /* Resources */,
 				28CD1D101B67DED40767C36E /* [CP] Embed Pods Frameworks */,
 				E44CF210E922A61BFF6D19E2 /* [CP] Copy Pods Resources */,
+				2ECF92771F8B553C00B4864F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -430,6 +431,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CleanFoodLogger/Pods-CleanFoodLogger-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		2ECF92771F8B553C00B4864F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"SwiftLint does not exist, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
 		373CC09D0F2C69B8C4D7F5E4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

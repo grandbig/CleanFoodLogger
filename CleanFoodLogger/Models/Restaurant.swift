@@ -18,7 +18,7 @@ struct Restaurant: Equatable {
     var longitude: Double
 }
 
-func ==(lhs: Restaurant, rhs: Restaurant) -> Bool {
+func == (lhs: Restaurant, rhs: Restaurant) -> Bool {
     return lhs.id == rhs.id
         && lhs.name == rhs.name
         && lhs.category == rhs.category

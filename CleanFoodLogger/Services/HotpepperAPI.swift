@@ -38,14 +38,14 @@ class HotpepperAPI: HotpepperProtocol {
             
             if response.result.isFailure {
                 let defaultErrorMessage = "レストラン情報を取得できませんでした。"
-                completionHandler([], HotpepperError.CannotFetch(response.result.error?.localizedDescription ?? defaultErrorMessage))
+                completionHandler([], HotpepperError.cannotFetch(response.result.error?.localizedDescription ?? defaultErrorMessage))
                 return
             }
             
             let json = JSON(response.result.value as Any)
             guard let shops = json["results"]["shop"].array else {
                 let defaultErrorMessage = "レストラン情報を取得できませんでした。"
-                completionHandler([], HotpepperError.CannotFetch(response.result.error?.localizedDescription ?? defaultErrorMessage))
+                completionHandler([], HotpepperError.cannotFetch(response.result.error?.localizedDescription ?? defaultErrorMessage))
                 return
             }
             
@@ -71,14 +71,14 @@ class HotpepperAPI: HotpepperProtocol {
             
             if response.result.isFailure {
                 let defaultErrorMessage = "レストラン情報を取得できませんでした。"
-                completionHandler(nil, HotpepperError.CannotFetch(response.result.error?.localizedDescription ?? defaultErrorMessage))
+                completionHandler(nil, HotpepperError.cannotFetch(response.result.error?.localizedDescription ?? defaultErrorMessage))
                 return
             }
             
             let json = JSON(response.result.value as Any)
             guard let shop = json["results"]["shop"].array?.first else {
                 let defaultErrorMessage = "レストラン情報を取得できませんでした。"
-                completionHandler(nil, HotpepperError.CannotFetch(response.result.error?.localizedDescription ?? defaultErrorMessage))
+                completionHandler(nil, HotpepperError.cannotFetch(response.result.error?.localizedDescription ?? defaultErrorMessage))
                 return
             }
             

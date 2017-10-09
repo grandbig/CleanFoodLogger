@@ -39,12 +39,12 @@ protocol HotpepperProtocol {
 // MARK: - CRUD operation errors
 
 enum HotpepperError: Equatable, Error {
-    case CannotFetch(String)
+    case cannotFetch(String)
 }
 
-func ==(lhs: HotpepperError, rhs: HotpepperError) -> Bool {
+func == (lhs: HotpepperError, rhs: HotpepperError) -> Bool {
     switch (lhs, rhs) {
-    case (.CannotFetch(let a), .CannotFetch(let b)) where a == b: return true
+    case (.cannotFetch(let a), .cannotFetch(let b)) where a == b: return true
     default: return false
     }
 }
