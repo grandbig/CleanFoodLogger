@@ -56,7 +56,8 @@ class HotpepperAPI: HotpepperProtocol {
                 let imageURL = shop["photo"]["mobile"]["l"].string ?? ""
                 let latitude = atof(shop["lat"].string ?? "0")
                 let longitude = atof(shop["lng"].string ?? "0")
-                let restaurant = Restaurant(id: id, name: name, category: category, imageURL: imageURL, latitude: latitude, longitude: longitude)
+                let restaurantURL = shop["urls"]["pc"].string ?? ""
+                let restaurant = Restaurant(id: id, name: name, category: category, imageURL: imageURL, latitude: latitude, longitude: longitude, restaurantURL: restaurantURL)
                 restaurants.append(restaurant)
             }
             
@@ -88,7 +89,8 @@ class HotpepperAPI: HotpepperProtocol {
             let imageURL = shop["photo"]["mobile"]["l"].string ?? ""
             let latitude = atof(shop["lat"].string ?? "0")
             let longitude = atof(shop["lng"].string ?? "0")
-            restaurant = Restaurant(id: id, name: name, category: category, imageURL: imageURL, latitude: latitude, longitude: longitude)
+            let restaurantURL = shop["urls"]["pc"].string ?? ""
+            restaurant = Restaurant(id: id, name: name, category: category, imageURL: imageURL, latitude: latitude, longitude: longitude, restaurantURL: restaurantURL)
             
             completionHandler(restaurant, nil)
         }

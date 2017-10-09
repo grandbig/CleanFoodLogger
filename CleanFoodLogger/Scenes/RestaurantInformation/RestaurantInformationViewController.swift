@@ -1,5 +1,5 @@
 //
-//  ShopInformationViewController.swift
+//  RestaurantInformationViewController.swift
 //  CleanFoodLogger
 //
 //  Created by Takahiro Kato on 2017/10/09.
@@ -13,16 +13,14 @@
 import UIKit
 import WebKit
 
-protocol ShopInformationDisplayLogic: class {
-    func displaySomething(viewModel: ShopInformation.Load.ViewModel)
+protocol RestaurantInformationDisplayLogic: class {
+    func displayRestaurantInformation(viewModel: RestaurantInformation.Load.ViewModel)
 }
 
-class ShopInformationViewController: UIViewController, ShopInformationDisplayLogic {
-    var interactor: ShopInformationBusinessLogic?
-    var router: (NSObjectProtocol & ShopInformationRoutingLogic & ShopInformationDataPassing)?
-    
-    @IBOutlet weak var webView: WKWebView!
-    
+class RestaurantInformationViewController: UIViewController, RestaurantInformationDisplayLogic {
+    var interactor: RestaurantInformationBusinessLogic?
+    var router: (NSObjectProtocol & RestaurantInformationRoutingLogic & RestaurantInformationDataPassing)?
+    private var webView: WKWebView!
     
     // MARK: Object lifecycle
     
@@ -40,9 +38,9 @@ class ShopInformationViewController: UIViewController, ShopInformationDisplayLog
     
     private func setup() {
         let viewController = self
-        let interactor = ShopInformationInteractor()
-        let presenter = ShopInformationPresenter()
-        let router = ShopInformationRouter()
+        let interactor = RestaurantInformationInteractor()
+        let presenter = RestaurantInformationPresenter()
+        let router = RestaurantInformationRouter()
         viewController.interactor = interactor
         viewController.router = router
         interactor.presenter = presenter
@@ -66,27 +64,42 @@ class ShopInformationViewController: UIViewController, ShopInformationDisplayLog
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadShopInformation()
+        
+        self.title = "RestaurantInformation"
+        configuraWebView()
+        loadRestaurantInformation()
     }
     
-    // MARK: Do something
+    // MARK: Configuration
     
-    //@IBOutlet weak var nameTextField: UITextField!
-    
-    func loadShopInformation() {
-        let request = ShopInformation.Load.Request()
-        interactor?.loadShopInformation(request: request)
+    private func configuraWebView() {
+        let webConfiguration = WKWebViewConfiguration()
+        let frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+        webView = WKWebView(frame: frame, configuration: webConfiguration)
+        webView.uiDelegate = self
+        webView.navigationDelegate = self
+        self.view.addSubview(webView)
     }
     
-    func displaySomething(viewModel: ShopInformation.Load.ViewModel) {
-        //nameTextField.text = viewModel.name
+    // MARK: Load restaurant information
+    
+    func loadRestaurantInformation() {
+        let request = RestaurantInformation.Load.Request()
+        interactor?.loadRestaurantInformation(request: request)
+    }
+    
+    func displayRestaurantInformation(viewModel: RestaurantInformation.Load.ViewModel) {
+        if let url = URL(string: viewModel.url) {
+            let urlRequest = URLRequest(url: url)
+            webView.load(urlRequest)
+        }
     }
 }
 
-extension ShopInformationViewController: WKUIDelegate {
+extension RestaurantInformationViewController: WKUIDelegate {
     
 }
 
-extension ShopInformationViewController: WKNavigationDelegate {
+extension RestaurantInformationViewController: WKNavigationDelegate {
     
 }

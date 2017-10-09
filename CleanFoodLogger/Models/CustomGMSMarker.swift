@@ -18,6 +18,7 @@ class CustomGMSMarker: GMSMarker {
     public var name: String!
     public var category: String!
     public var imageURL: String!
+    public var restaurantURL: String!
     
     /// 初期化
     override init() {

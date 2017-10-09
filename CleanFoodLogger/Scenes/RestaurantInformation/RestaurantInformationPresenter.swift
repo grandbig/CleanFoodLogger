@@ -1,5 +1,5 @@
 //
-//  ShopInforamtionPresenter.swift
+//  RestaurantInforamtionPresenter.swift
 //  CleanFoodLogger
 //
 //  Created by Takahiro Kato on 2017/10/09.
@@ -12,17 +12,17 @@
 
 import UIKit
 
-protocol ShopInformationPresentationLogic {
-    func presentRestaurantInformation(response: ShopInformation.Load.Response)
+protocol RestaurantInformationPresentationLogic {
+    func presentRestaurantInformation(response: RestaurantInformation.Load.Response)
 }
 
-class ShopInformationPresenter: ShopInformationPresentationLogic {
-    weak var viewController: ShopInformationDisplayLogic?
+class RestaurantInformationPresenter: RestaurantInformationPresentationLogic {
+    weak var viewController: RestaurantInformationDisplayLogic?
     
     // MARK: Do something
     
-    func presentRestaurantInformation(response: ShopInformation.Load.Response) {
-        let viewModel = ShopInformation.Load.ViewModel(url: response.url)
-        viewController?.displaySomething(viewModel: viewModel)
+    func presentRestaurantInformation(response: RestaurantInformation.Load.Response) {
+        let viewModel = RestaurantInformation.Load.ViewModel(url: response.url)
+        viewController?.displayRestaurantInformation(viewModel: viewModel)
     }
 }

@@ -1,5 +1,5 @@
 //
-//  ShopInformationRouter.swift
+//  RestaurantInformationRouter.swift
 //  CleanFoodLogger
 //
 //  Created by Takahiro Kato on 2017/10/09.
@@ -12,17 +12,17 @@
 
 import UIKit
 
-@objc protocol ShopInformationRoutingLogic {
+@objc protocol RestaurantInformationRoutingLogic {
     //func routeToSomewhere(segue: UIStoryboardSegue?)
 }
 
-protocol ShopInformationDataPassing {
-    var dataStore: ShopInformationDataStore? { get }
+protocol RestaurantInformationDataPassing {
+    var dataStore: RestaurantInformationDataStore? { get }
 }
 
-class ShopInformationRouter: NSObject, ShopInformationRoutingLogic, ShopInformationDataPassing {
-    weak var viewController: ShopInformationViewController?
-    var dataStore: ShopInformationDataStore?
+class RestaurantInformationRouter: NSObject, RestaurantInformationRoutingLogic, RestaurantInformationDataPassing {
+    weak var viewController: RestaurantInformationViewController?
+    var dataStore: RestaurantInformationDataStore?
     
     // MARK: Routing
     

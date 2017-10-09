@@ -1,5 +1,5 @@
 //
-//  ShopInformationWorker.swift
+//  RestaurantInformationWorker.swift
 //  CleanFoodLogger
 //
 //  Created by Takahiro Kato on 2017/10/09.
@@ -12,7 +12,7 @@
 
 import UIKit
 
-class ShopInformationWorker {
+class RestaurantInformationWorker {
     func doSomeWork() {
     }
 }

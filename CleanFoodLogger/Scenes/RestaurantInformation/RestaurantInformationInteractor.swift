@@ -13,22 +13,22 @@
 import UIKit
 
 protocol RestaurantInformationBusinessLogic {
-    func loadShopInformation(request: RestaurantInformation.Load.Request)
+    func loadRestaurantInformation(request: RestaurantInformation.Load.Request)
 }
 
 protocol RestaurantInformationDataStore {
-    var restaurantUrl: String { get set }
+    var urlString: String { get set }
 }
 
 class RestaurantInformationInteractor: RestaurantInformationBusinessLogic, RestaurantInformationDataStore {
     var presenter: RestaurantInformationPresentationLogic?
     var worker: RestaurantInformationWorker?
-    var restaurantUrl: String = ""
+    var urlString: String = ""
     
     // MARK: Do something
     
     func loadRestaurantInformation(request: RestaurantInformation.Load.Request) {
-        let response = RestaurantInformation.Load.Response(url: restaurantUrl)
-        presenter?.presentSomething(response: response)
+        let response = RestaurantInformation.Load.Response(url: urlString)
+        presenter?.presentRestaurantInformation(response: response)
     }
 }

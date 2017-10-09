@@ -16,6 +16,7 @@ struct Restaurant: Equatable {
     var imageURL: String
     var latitude: Double
     var longitude: Double
+    var restaurantURL: String
 }
 
 func == (lhs: Restaurant, rhs: Restaurant) -> Bool {
@@ -25,4 +26,5 @@ func == (lhs: Restaurant, rhs: Restaurant) -> Bool {
         && lhs.imageURL == rhs.imageURL
         && lhs.latitude == rhs.latitude
         && lhs.longitude == rhs.longitude
+        && lhs.restaurantURL == rhs.restaurantURL
 }

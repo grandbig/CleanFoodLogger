@@ -15,6 +15,7 @@ import UIKit
 protocol MapPresentationLogic {
     func presentInitMapView(response: Map.Init.Response)
     func presentSearchedRestaurants(response: Map.Search.Response)
+    func presentFetchedRestaurantInformation(response: Map.Fetch.Response)
 }
 
 class MapPresenter: MapPresentationLogic {
@@ -40,5 +41,12 @@ class MapPresenter: MapPresentationLogic {
             return
         }
         viewController?.displaySearchedFailure(viewModel: viewModel)
+    }
+    
+    // MARK: Present fetched restaurant information
+    
+    func presentFetchedRestaurantInformation(response: Map.Fetch.Response) {
+        let viewModel = Map.Fetch.ViewModel()
+        viewController?.transitRestaurantInformation(viewModel: viewModel)
     }
 }

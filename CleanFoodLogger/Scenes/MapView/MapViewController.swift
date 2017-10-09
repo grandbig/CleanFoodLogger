@@ -17,9 +17,11 @@ protocol MapDisplayLogic: class {
     func displayInitMap(viewModel: Map.Init.ViewModel)
     func displaySearchedSuccess(viewModel: Map.Search.ViewModel)
     func displaySearchedFailure(viewModel: Map.Search.ViewModel)
+    func transitRestaurantInformation(viewModel: Map.Fetch.ViewModel)
 }
 
 class MapViewController: UIViewController, MapDisplayLogic {
+    
     var interactor: MapBusinessLogic?
     var router: (NSObjectProtocol & MapRoutingLogic & MapDataPassing)?
     
@@ -130,6 +132,17 @@ class MapViewController: UIViewController, MapDisplayLogic {
         searchRestaurants()
     }
     
+    // MARK: Browse restaurant information
+    
+    func fetchRestaurantInformation(urlString: String) {
+        let request = Map.Fetch.Request(urlString: urlString)
+        interactor?.fetchRestaurantInformation(request: request)
+    }
+    
+    func transitRestaurantInformation(viewModel: Map.Fetch.ViewModel) {
+        router?.routeToRestaurantInformation(segue: nil)
+    }
+    
     // MARK: Other
     /**
      マップにマーカをプロットする処理
@@ -143,6 +156,7 @@ class MapViewController: UIViewController, MapDisplayLogic {
         marker.category = restaurant.category
         marker.imageURL = restaurant.imageURL
         marker.position = CLLocationCoordinate2D(latitude: restaurant.latitude, longitude: restaurant.longitude)
+        marker.restaurantURL = restaurant.restaurantURL
         marker.icon = UIImage(named: "RestaurantIcon")
         marker.appearAnimation = GMSMarkerAnimation.pop
         marker.map = mapView
@@ -206,5 +220,9 @@ extension MapViewController: GMSMapViewDelegate {
     }
     
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
+        guard let cMarker = marker as? CustomGMSMarker else {
+            return
+        }
+        fetchRestaurantInformation(urlString: cMarker.restaurantURL)
     }
 }
