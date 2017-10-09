@@ -1,5 +1,5 @@
 //
-//  MapViewRouter.swift
+//  MapRouter.swift
 //  CleanFoodLogger
 //
 //  Created by Takahiro Kato on 2017/10/07.
@@ -12,17 +12,17 @@
 
 import UIKit
 
-@objc protocol MapViewRoutingLogic {
+@objc protocol MapRoutingLogic {
     //func routeToSomewhere(segue: UIStoryboardSegue?)
 }
 
-protocol MapViewDataPassing {
-    var dataStore: MapViewDataStore? { get }
+protocol MapDataPassing {
+    var dataStore: MapDataStore? { get }
 }
 
-class MapViewRouter: NSObject, MapViewRoutingLogic, MapViewDataPassing {
+class MapRouter: NSObject, MapRoutingLogic, MapDataPassing {
     weak var viewController: MapViewController?
-    var dataStore: MapViewDataStore?
+    var dataStore: MapDataStore?
   
     // MARK: Routing
     

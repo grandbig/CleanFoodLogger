@@ -1,5 +1,5 @@
 //
-//  MapViewPresenter.swift
+//  MapPresenter.swift
 //  CleanFoodLogger
 //
 //  Created by Takahiro Kato on 2017/10/07.
@@ -12,29 +12,29 @@
 
 import UIKit
 
-protocol MapViewPresentationLogic {
-    func presentInitMapView(response: MapView.Init.Response)
-    func presentSearchedRestaurants(response: MapView.Search.Response)
+protocol MapPresentationLogic {
+    func presentInitMapView(response: Map.Init.Response)
+    func presentSearchedRestaurants(response: Map.Search.Response)
 }
 
-class MapViewPresenter: MapViewPresentationLogic {
-    weak var viewController: MapViewDisplayLogic?
+class MapPresenter: MapPresentationLogic {
+    weak var viewController: MapDisplayLogic?
     private let zoomLevel: Float = 16.0
     
     // MARK: Present init mapView
     
-    func presentInitMapView(response: MapView.Init.Response) {
+    func presentInitMapView(response: Map.Init.Response) {
         let latitude = response.latitude
         let longitude = response.longitude
-        let viewModel = MapView.Init.ViewModel(latitude: latitude, longitude: longitude, zoomLevel: zoomLevel)
+        let viewModel = Map.Init.ViewModel(latitude: latitude, longitude: longitude, zoomLevel: zoomLevel)
         viewController?.displayInitMap(viewModel: viewModel)
     }
     
     // MARK: Present searched restaurants
     
-    func presentSearchedRestaurants(response: MapView.Search.Response) {
+    func presentSearchedRestaurants(response: Map.Search.Response) {
         let restaurants = response.restaurants
-        let viewModel = MapView.Search.ViewModel(restaurants: restaurants)
+        let viewModel = Map.Search.ViewModel(restaurants: restaurants)
         if restaurants.count > 0 {
             viewController?.displaySearchedSuccess(viewModel: viewModel)
             return

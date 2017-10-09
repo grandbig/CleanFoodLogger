@@ -1,5 +1,5 @@
 //
-//  MapViewModel.swift
+//  MapModels.swift
 //  CleanFoodLogger
 //
 //  Created by Takahiro Kato on 2017/10/07.
@@ -12,7 +12,7 @@
 
 import UIKit
 
-enum MapView {
+enum Map {
     
     // MARK: Init mapView
     
