@@ -15,15 +15,17 @@ import UIKit
 protocol MapBusinessLogic {
     func initMapView(request: Map.Init.Request)
     func searchRestaurants(request: Map.Search.Request)
+    func fetchRestaurantInformation(request: Map.Fetch.Request)
 }
 
 protocol MapDataStore {
-    //var name: String { get set }
+    var urlString: String { get set }
 }
 
 class MapInteractor: MapBusinessLogic, MapDataStore {
     var presenter: MapPresentationLogic?
     var worker = HotpepperWorker(hotpepper: HotpepperAPI())
+    var urlString: String = ""
     private var initView: Bool = false
     
     // MARK: Init mapView
@@ -43,5 +45,13 @@ class MapInteractor: MapBusinessLogic, MapDataStore {
             let response = Map.Search.Response(restaurants: restaurants)
             self.presenter?.presentSearchedRestaurants(response: response)
         }
+    }
+    
+    // MARK: Tap info window
+    
+    func fetchRestaurantInformation(request: Map.Fetch.Request) {
+        urlString = request.urlString
+        let response = Map.Fetch.Response()
+        presenter?.presentFetchedRestaurantInformation(response: response)
     }
 }

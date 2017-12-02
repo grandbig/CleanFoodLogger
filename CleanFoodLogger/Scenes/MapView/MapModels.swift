@@ -46,4 +46,16 @@ enum Map {
             var restaurants: [Restaurant]
         }
     }
+    
+    // MARK: Fetch restaurant information
+    
+    enum Fetch {
+        struct Request {
+            var urlString: String
+        }
+        struct Response {
+        }
+        struct ViewModel {
+        }
+    }
 }

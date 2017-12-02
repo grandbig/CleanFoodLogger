@@ -27,9 +27,17 @@
 		2EBB024F1F8A7E6500F00EF7 /* CustomInfoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EBB024E1F8A7E6500F00EF7 /* CustomInfoWindow.xib */; };
 		2EBB02511F8A7FCA00F00EF7 /* CustomInfoWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBB02501F8A7FCA00F00EF7 /* CustomInfoWindow.swift */; };
 		2ECF92761F8A82E400B4864F /* CustomGMSMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECF92751F8A82E400B4864F /* CustomGMSMarker.swift */; };
+		2ECF927F1F8B583500B4864F /* RestaurantInformationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECF92791F8B583400B4864F /* RestaurantInformationRouter.swift */; };
+		2ECF92801F8B583500B4864F /* RestaurantInformationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECF927A1F8B583400B4864F /* RestaurantInformationInteractor.swift */; };
+		2ECF92811F8B583500B4864F /* RestaurantInformationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECF927B1F8B583400B4864F /* RestaurantInformationModels.swift */; };
+		2ECF92821F8B583500B4864F /* RestaurantInformationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECF927C1F8B583400B4864F /* RestaurantInformationPresenter.swift */; };
+		2ECF92831F8B583500B4864F /* RestaurantInformationWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECF927D1F8B583500B4864F /* RestaurantInformationWorker.swift */; };
+		2ECF92841F8B583500B4864F /* RestaurantInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECF927E1F8B583500B4864F /* RestaurantInformationViewController.swift */; };
 		7D07D9A7763F336C9AB7D7ED /* Pods_CleanFoodLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6571F39A2FA1A8008F02BDD2 /* Pods_CleanFoodLogger.framework */; };
 		90431AB651DCA58EE92F1D57 /* Pods_Tests_CleanFoodLoggerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AD20C5C232EF11C4BE877CB /* Pods_Tests_CleanFoodLoggerTests.framework */; };
+		B6701B8893007D210981C422 /* Pods_CleanFoodLogger_Tests_CleanFoodLoggerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C650BA4A587D4AB96821D689 /* Pods_CleanFoodLogger_Tests_CleanFoodLoggerUITests.framework */; };
 		C2D7B50B59E2592FBE67640F /* Pods_Tests_CleanFoodLoggerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3CBD12908349334E3366A93 /* Pods_Tests_CleanFoodLoggerUITests.framework */; };
+		FACA8AFAA03980D87E776372 /* Pods_CleanFoodLogger_Tests_CleanFoodLoggerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42ACB546C1C79576E37F8BF3 /* Pods_CleanFoodLogger_Tests_CleanFoodLoggerTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +59,7 @@
 
 /* Begin PBXFileReference section */
 		0AD20C5C232EF11C4BE877CB /* Pods_Tests_CleanFoodLoggerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tests_CleanFoodLoggerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E3B73C81FD2AC1900DEBDBC /* CleanFoodLogger.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CleanFoodLogger.entitlements; sourceTree = "<group>"; };
 		2E6E43BF1F8A5F610014D43B /* CleanFoodLogger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CleanFoodLogger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E6E43C21F8A5F610014D43B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2E6E43C41F8A5F610014D43B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -77,13 +86,25 @@
 		2EBB024E1F8A7E6500F00EF7 /* CustomInfoWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomInfoWindow.xib; sourceTree = "<group>"; };
 		2EBB02501F8A7FCA00F00EF7 /* CustomInfoWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInfoWindow.swift; sourceTree = "<group>"; };
 		2ECF92751F8A82E400B4864F /* CustomGMSMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGMSMarker.swift; sourceTree = "<group>"; };
+		2ECF92791F8B583400B4864F /* RestaurantInformationRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantInformationRouter.swift; sourceTree = "<group>"; };
+		2ECF927A1F8B583400B4864F /* RestaurantInformationInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantInformationInteractor.swift; sourceTree = "<group>"; };
+		2ECF927B1F8B583400B4864F /* RestaurantInformationModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantInformationModels.swift; sourceTree = "<group>"; };
+		2ECF927C1F8B583400B4864F /* RestaurantInformationPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantInformationPresenter.swift; sourceTree = "<group>"; };
+		2ECF927D1F8B583500B4864F /* RestaurantInformationWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantInformationWorker.swift; sourceTree = "<group>"; };
+		2ECF927E1F8B583500B4864F /* RestaurantInformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantInformationViewController.swift; sourceTree = "<group>"; };
 		373E4407276EA7260E396D87 /* Pods-Tests-CleanFoodLoggerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-CleanFoodLoggerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests-CleanFoodLoggerTests/Pods-Tests-CleanFoodLoggerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3FCC5AA019ACA3702614CEB6 /* Pods-CleanFoodLogger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanFoodLogger.release.xcconfig"; path = "Pods/Target Support Files/Pods-CleanFoodLogger/Pods-CleanFoodLogger.release.xcconfig"; sourceTree = "<group>"; };
+		42ACB546C1C79576E37F8BF3 /* Pods_CleanFoodLogger_Tests_CleanFoodLoggerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CleanFoodLogger_Tests_CleanFoodLoggerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D7F668F56D0FC363EF3A066 /* Pods-CleanFoodLogger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanFoodLogger.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CleanFoodLogger/Pods-CleanFoodLogger.debug.xcconfig"; sourceTree = "<group>"; };
 		4F5538EF98BE2B9BBBEBB1C3 /* Pods-Tests-CleanFoodLoggerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-CleanFoodLoggerUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests-CleanFoodLoggerUITests/Pods-Tests-CleanFoodLoggerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		555575B2F8D663E748D865AE /* Pods-Tests-CleanFoodLoggerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-CleanFoodLoggerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tests-CleanFoodLoggerTests/Pods-Tests-CleanFoodLoggerTests.release.xcconfig"; sourceTree = "<group>"; };
+		5B0732C075E6B61033B767B7 /* Pods-CleanFoodLogger-Tests-CleanFoodLoggerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanFoodLogger-Tests-CleanFoodLoggerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CleanFoodLogger-Tests-CleanFoodLoggerTests/Pods-CleanFoodLogger-Tests-CleanFoodLoggerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6571F39A2FA1A8008F02BDD2 /* Pods_CleanFoodLogger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CleanFoodLogger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		82FD1986E18B83FC1041202A /* Pods-CleanFoodLogger-Tests-CleanFoodLoggerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanFoodLogger-Tests-CleanFoodLoggerUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CleanFoodLogger-Tests-CleanFoodLoggerUITests/Pods-CleanFoodLogger-Tests-CleanFoodLoggerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		834C0288AC9DB57A82632CCD /* Pods-Tests-CleanFoodLoggerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-CleanFoodLoggerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tests-CleanFoodLoggerUITests/Pods-Tests-CleanFoodLoggerUITests.release.xcconfig"; sourceTree = "<group>"; };
+		BFF6C9C7122BDAF64750B83C /* Pods-CleanFoodLogger-Tests-CleanFoodLoggerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanFoodLogger-Tests-CleanFoodLoggerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CleanFoodLogger-Tests-CleanFoodLoggerTests/Pods-CleanFoodLogger-Tests-CleanFoodLoggerTests.release.xcconfig"; sourceTree = "<group>"; };
+		C650BA4A587D4AB96821D689 /* Pods_CleanFoodLogger_Tests_CleanFoodLoggerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CleanFoodLogger_Tests_CleanFoodLoggerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE6965B9F8154BD429B0ABF4 /* Pods-CleanFoodLogger-Tests-CleanFoodLoggerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanFoodLogger-Tests-CleanFoodLoggerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CleanFoodLogger-Tests-CleanFoodLoggerUITests/Pods-CleanFoodLogger-Tests-CleanFoodLoggerUITests.release.xcconfig"; sourceTree = "<group>"; };
 		F3CBD12908349334E3366A93 /* Pods_Tests_CleanFoodLoggerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tests_CleanFoodLoggerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -101,6 +122,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				90431AB651DCA58EE92F1D57 /* Pods_Tests_CleanFoodLoggerTests.framework in Frameworks */,
+				FACA8AFAA03980D87E776372 /* Pods_CleanFoodLogger_Tests_CleanFoodLoggerTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +131,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2D7B50B59E2592FBE67640F /* Pods_Tests_CleanFoodLoggerUITests.framework in Frameworks */,
+				B6701B8893007D210981C422 /* Pods_CleanFoodLogger_Tests_CleanFoodLoggerUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,6 +147,10 @@
 				555575B2F8D663E748D865AE /* Pods-Tests-CleanFoodLoggerTests.release.xcconfig */,
 				4F5538EF98BE2B9BBBEBB1C3 /* Pods-Tests-CleanFoodLoggerUITests.debug.xcconfig */,
 				834C0288AC9DB57A82632CCD /* Pods-Tests-CleanFoodLoggerUITests.release.xcconfig */,
+				5B0732C075E6B61033B767B7 /* Pods-CleanFoodLogger-Tests-CleanFoodLoggerTests.debug.xcconfig */,
+				BFF6C9C7122BDAF64750B83C /* Pods-CleanFoodLogger-Tests-CleanFoodLoggerTests.release.xcconfig */,
+				82FD1986E18B83FC1041202A /* Pods-CleanFoodLogger-Tests-CleanFoodLoggerUITests.debug.xcconfig */,
+				CE6965B9F8154BD429B0ABF4 /* Pods-CleanFoodLogger-Tests-CleanFoodLoggerUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -134,6 +161,8 @@
 				6571F39A2FA1A8008F02BDD2 /* Pods_CleanFoodLogger.framework */,
 				0AD20C5C232EF11C4BE877CB /* Pods_Tests_CleanFoodLoggerTests.framework */,
 				F3CBD12908349334E3366A93 /* Pods_Tests_CleanFoodLoggerUITests.framework */,
+				42ACB546C1C79576E37F8BF3 /* Pods_CleanFoodLogger_Tests_CleanFoodLoggerTests.framework */,
+				C650BA4A587D4AB96821D689 /* Pods_CleanFoodLogger_Tests_CleanFoodLoggerUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -163,6 +192,7 @@
 		2E6E43C11F8A5F610014D43B /* CleanFoodLogger */ = {
 			isa = PBXGroup;
 			children = (
+				2E3B73C81FD2AC1900DEBDBC /* CleanFoodLogger.entitlements */,
 				2E6E44071F8A745D0014D43B /* Views */,
 				2E6E44041F8A6CD80014D43B /* Models */,
 				2E6E44011F8A69680014D43B /* Workers */,
@@ -199,6 +229,7 @@
 		2E6E43F21F8A63600014D43B /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				2ECF92781F8B578300B4864F /* RestaurantInformation */,
 				2E6E43F31F8A63700014D43B /* MapView */,
 			);
 			path = Scenes;
@@ -258,6 +289,19 @@
 				2EBB02501F8A7FCA00F00EF7 /* CustomInfoWindow.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		2ECF92781F8B578300B4864F /* RestaurantInformation */ = {
+			isa = PBXGroup;
+			children = (
+				2ECF927A1F8B583400B4864F /* RestaurantInformationInteractor.swift */,
+				2ECF927B1F8B583400B4864F /* RestaurantInformationModels.swift */,
+				2ECF927C1F8B583400B4864F /* RestaurantInformationPresenter.swift */,
+				2ECF92791F8B583400B4864F /* RestaurantInformationRouter.swift */,
+				2ECF927E1F8B583500B4864F /* RestaurantInformationViewController.swift */,
+				2ECF927D1F8B583500B4864F /* RestaurantInformationWorker.swift */,
+			);
+			path = RestaurantInformation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -339,6 +383,11 @@
 					2E6E43BE1F8A5F610014D43B = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.SafariKeychain = {
+								enabled = 0;
+							};
+						};
 					};
 					2E6E43D21F8A5F610014D43B = {
 						CreatedOnToolsVersion = 9.0;
@@ -408,13 +457,28 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-CleanFoodLogger-Tests-CleanFoodLoggerTests/Pods-CleanFoodLogger-Tests-CleanFoodLoggerTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tests-CleanFoodLoggerTests/Pods-Tests-CleanFoodLoggerTests-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CleanFoodLogger-Tests-CleanFoodLoggerTests/Pods-CleanFoodLogger-Tests-CleanFoodLoggerTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		28CD1D101B67DED40767C36E /* [CP] Embed Pods Frameworks */ = {
@@ -423,9 +487,24 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-CleanFoodLogger/Pods-CleanFoodLogger-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -451,13 +530,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CleanFoodLogger-Tests-CleanFoodLoggerUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		581D0D5910C9B1A6D9A907CD /* [CP] Check Pods Manifest.lock */ = {
@@ -466,13 +548,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CleanFoodLogger-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7AD24DE25A671FBE916E9AA1 /* [CP] Copy Pods Resources */ = {
@@ -481,13 +566,17 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-CleanFoodLogger-Tests-CleanFoodLoggerTests/Pods-CleanFoodLogger-Tests-CleanFoodLoggerTests-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tests-CleanFoodLoggerTests/Pods-Tests-CleanFoodLoggerTests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CleanFoodLogger-Tests-CleanFoodLoggerTests/Pods-CleanFoodLogger-Tests-CleanFoodLoggerTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		82B0E46DE09BB1E1A916DBF7 /* [CP] Embed Pods Frameworks */ = {
@@ -496,13 +585,28 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-CleanFoodLogger-Tests-CleanFoodLoggerUITests/Pods-CleanFoodLogger-Tests-CleanFoodLoggerUITests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tests-CleanFoodLoggerUITests/Pods-Tests-CleanFoodLoggerUITests-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CleanFoodLogger-Tests-CleanFoodLoggerUITests/Pods-CleanFoodLogger-Tests-CleanFoodLoggerUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		AF26980B3ECA82129511CAE6 /* [CP] Check Pods Manifest.lock */ = {
@@ -511,13 +615,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CleanFoodLogger-Tests-CleanFoodLoggerTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		BDF50D756FCDE025186BC1A8 /* [CP] Copy Pods Resources */ = {
@@ -526,13 +633,17 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-CleanFoodLogger-Tests-CleanFoodLoggerUITests/Pods-CleanFoodLogger-Tests-CleanFoodLoggerUITests-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tests-CleanFoodLoggerUITests/Pods-Tests-CleanFoodLoggerUITests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CleanFoodLogger-Tests-CleanFoodLoggerUITests/Pods-CleanFoodLogger-Tests-CleanFoodLoggerUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E44CF210E922A61BFF6D19E2 /* [CP] Copy Pods Resources */ = {
@@ -541,9 +652,13 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-CleanFoodLogger/Pods-CleanFoodLogger-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -559,13 +674,19 @@
 			files = (
 				2E6E44061F8A6D170014D43B /* Restaurant.swift in Sources */,
 				2E6E43C51F8A5F610014D43B /* MapViewController.swift in Sources */,
+				2ECF92801F8B583500B4864F /* RestaurantInformationInteractor.swift in Sources */,
 				2ECF92761F8A82E400B4864F /* CustomGMSMarker.swift in Sources */,
 				2E6E43FD1F8A64420014D43B /* MapPresenter.swift in Sources */,
 				2E6E43FB1F8A64420014D43B /* MapInteractor.swift in Sources */,
 				2EBB02511F8A7FCA00F00EF7 /* CustomInfoWindow.swift in Sources */,
+				2ECF92841F8B583500B4864F /* RestaurantInformationViewController.swift in Sources */,
+				2ECF92821F8B583500B4864F /* RestaurantInformationPresenter.swift in Sources */,
 				2E6E44031F8A69800014D43B /* HotpepperWorker.swift in Sources */,
 				2E6E43C31F8A5F610014D43B /* AppDelegate.swift in Sources */,
+				2ECF92831F8B583500B4864F /* RestaurantInformationWorker.swift in Sources */,
 				2E6E44091F8A74740014D43B /* ViewController+Alert.swift in Sources */,
+				2ECF92811F8B583500B4864F /* RestaurantInformationModels.swift in Sources */,
+				2ECF927F1F8B583500B4864F /* RestaurantInformationRouter.swift in Sources */,
 				2E6E43F91F8A64420014D43B /* MapWorker.swift in Sources */,
 				2E6E43FC1F8A64420014D43B /* MapRouter.swift in Sources */,
 				2E6E44001F8A693B0014D43B /* HotpepperAPI.swift in Sources */,
@@ -767,7 +888,7 @@
 		};
 		2E6E43EB1F8A5F620014D43B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 373E4407276EA7260E396D87 /* Pods-Tests-CleanFoodLoggerTests.debug.xcconfig */;
+			baseConfigurationReference = 5B0732C075E6B61033B767B7 /* Pods-CleanFoodLogger-Tests-CleanFoodLoggerTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -785,7 +906,7 @@
 		};
 		2E6E43EC1F8A5F620014D43B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 555575B2F8D663E748D865AE /* Pods-Tests-CleanFoodLoggerTests.release.xcconfig */;
+			baseConfigurationReference = BFF6C9C7122BDAF64750B83C /* Pods-CleanFoodLogger-Tests-CleanFoodLoggerTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -803,7 +924,7 @@
 		};
 		2E6E43EE1F8A5F620014D43B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4F5538EF98BE2B9BBBEBB1C3 /* Pods-Tests-CleanFoodLoggerUITests.debug.xcconfig */;
+			baseConfigurationReference = 82FD1986E18B83FC1041202A /* Pods-CleanFoodLogger-Tests-CleanFoodLoggerUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -820,7 +941,7 @@
 		};
 		2E6E43EF1F8A5F620014D43B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 834C0288AC9DB57A82632CCD /* Pods-Tests-CleanFoodLoggerUITests.release.xcconfig */;
+			baseConfigurationReference = CE6965B9F8154BD429B0ABF4 /* Pods-CleanFoodLogger-Tests-CleanFoodLoggerUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

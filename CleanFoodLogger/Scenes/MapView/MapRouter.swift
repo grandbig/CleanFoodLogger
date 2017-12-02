@@ -13,7 +13,7 @@
 import UIKit
 
 @objc protocol MapRoutingLogic {
-    //func routeToSomewhere(segue: UIStoryboardSegue?)
+    func routeToRestaurantInformation(segue: UIStoryboardSegue?)
 }
 
 protocol MapDataPassing {
@@ -26,29 +26,29 @@ class MapRouter: NSObject, MapRoutingLogic, MapDataPassing {
   
     // MARK: Routing
     
-    //func routeToSomewhere(segue: UIStoryboardSegue?) {
-    //  if let segue = segue {
-    //    let destinationVC = segue.destination as! SomewhereViewController
-    //    var destinationDS = destinationVC.router!.dataStore!
-    //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-    //  } else {
-    //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    //    let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-    //    var destinationDS = destinationVC.router!.dataStore!
-    //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-    //    navigateToSomewhere(source: viewController!, destination: destinationVC)
-    //  }
-    //}
+    func routeToRestaurantInformation(segue: UIStoryboardSegue?) {
+      if let segue = segue {
+        let destinationVC = segue.destination as! RestaurantInformationViewController
+        var destinationDS = destinationVC.router!.dataStore!
+        passDataToRestaurantInformation(source: dataStore!, destination: &destinationDS)
+      } else {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let destinationVC = storyboard.instantiateViewController(withIdentifier: "RestaurantInformationViewController") as! RestaurantInformationViewController
+        var destinationDS = destinationVC.router!.dataStore!
+        passDataToRestaurantInformation(source: dataStore!, destination: &destinationDS)
+        navigateToRestaurantInformation(source: viewController!, destination: destinationVC)
+      }
+    }
     
     // MARK: Navigation
     
-    //func navigateToSomewhere(source: ___VARIABLE_sceneName___ViewController, destination: SomewhereViewController) {
-    //  source.show(destination, sender: nil)
-    //}
+    func navigateToRestaurantInformation(source: MapViewController, destination: RestaurantInformationViewController) {
+      source.show(destination, sender: nil)
+    }
     
     // MARK: Passing data
     
-    //func passDataToSomewhere(source: ___VARIABLE_sceneName___DataStore, destination: inout SomewhereDataStore) {
-    //  destination.name = source.name
-    //}
+    func passDataToRestaurantInformation(source: MapDataStore, destination: inout RestaurantInformationDataStore) {
+        destination.urlString = source.urlString
+    }
 }
