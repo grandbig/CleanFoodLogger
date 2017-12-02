@@ -7,92 +7,178 @@
 //
 
 import Foundation
+import Moya
 import Alamofire
 import SwiftyJSON
+
+internal enum HotpepperAPITarget {
+    case restaurants(lat: Double, lng: Double)
+    case restaurant(id: String)
+}
+
+extension HotpepperAPITarget: TargetType {
+    
+    /// API Key
+    private var apiKey: String {
+        guard let path = Bundle.main.path(forResource: "key", ofType: "plist") else {
+            fatalError("key.plistが見つかりません")
+        }
+        
+        guard let dic = NSDictionary(contentsOfFile: path) as? [String: Any] else {
+            fatalError("key.plistの中身が想定通りではありません")
+        }
+        
+        guard let apiKey = dic["hotpepperApiKey"] as? String else {
+            fatalError("hotpepperAPIのKeyが設定されていません")
+        }
+        
+        return apiKey
+    }
+    
+    // ベースURLを文字列で定義
+    private var _baseURL: String {
+        return "https://webservice.recruit.co.jp/hotpepper/gourmet/v1/"
+    }
+    
+    public var baseURL: URL {
+        return URL(string: _baseURL)!
+    }
+    
+    // enumの値に対応したパスを指定
+    public var path: String {
+        switch self {
+        case .restaurants, .restaurant:
+            return ""
+        }
+    }
+    
+    // enumの値に対応したHTTPメソッドを指定
+    public var method: Moya.Method {
+        switch self {
+        case .restaurants, .restaurant:
+            return .get
+        }
+    }
+    
+    // スタブデータの設定
+    public var sampleData: Data {
+        switch self {
+        case .restaurants:
+            return "Stub data".data(using: String.Encoding.utf8)!
+        case .restaurant:
+            return "Stub data".data(using: String.Encoding.utf8)!
+        }
+    }
+    
+    // パラメータの設定
+    var task: Task {
+        switch self {
+        case .restaurants(let lat, let lng):
+            return .requestParameters(parameters: ["key": apiKey, "format": "json", "lat": lat, "lng": lng, "range": 3],
+                                      encoding: URLEncoding.default)
+        case .restaurant(let id):
+            return .requestParameters(parameters: ["key": apiKey, "format": "json", "id": id], encoding: URLEncoding.default)
+        }
+    }
+    
+    // ヘッダーの設定
+    var headers: [String : String]? {
+        switch self {
+        case .restaurants, .restaurant:
+            return nil
+        }
+    }
+}
 
 /**
  ホットペッパーAPI
  */
 class HotpepperAPI: HotpepperProtocol {
     
-    /// API Key
-    private var apiKey: String = String()
-    /// Geocoding APIのベースURL
-    private let baseURL: String = "https://webservice.recruit.co.jp/hotpepper/gourmet/v1/"
+    private var provider: MoyaProvider<HotpepperAPITarget>!
     
-    /// 初期化処理
     init() {
-        if let path = Bundle.main.path(forResource: "key", ofType: "plist") {
-            if let dic = NSDictionary(contentsOfFile: path) as? [String: Any] {
-                if let apiKey = dic["hotpepperApiKey"] as? String {
-                    self.apiKey = apiKey
-                }
-            }
-        }
+        provider = MoyaProvider<HotpepperAPITarget>()
     }
     
     func fetchRestaurants(latitude: Double, longitude: Double, completionHandler: @escaping ([Restaurant], HotpepperError?) -> Void) {
-        let parameters = ["key": self.apiKey, "format": "json", "lat": latitude, "lng": longitude, "range": 3] as [String : Any]
-        Alamofire.SessionManager.default.requestWithoutCache(baseURL, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil).responseJSON { response in
-            var restaurants: [Restaurant] = [Restaurant]()
+        
+        provider.request(.restaurants(lat: latitude, lng: longitude)) { result in
             
-            if response.result.isFailure {
-                let defaultErrorMessage = "レストラン情報を取得できませんでした。"
-                completionHandler([], HotpepperError.cannotFetch(response.result.error?.localizedDescription ?? defaultErrorMessage))
-                return
+            switch result {
+            case .success(let response):
+                do {
+                    var restaurants: [Restaurant] = [Restaurant]()
+                    let json = try JSON(data: response.data)
+                    guard let shops = json["results"]["shop"].array else {
+                        completionHandler([], HotpepperError.cannotFetch("レストラン情報を取得できませんでした。"))
+                        return
+                    }
+                    
+                    for shop in shops {
+                        let id = shop["id"].string ?? "ID不明"
+                        let name = shop["name"].string ?? "ショップ名不明"
+                        let category = shop["genre"]["name"].string ?? "カテゴリ不明"
+                        let imageURL = shop["photo"]["mobile"]["l"].string ?? ""
+                        let latitude = atof(shop["lat"].string ?? "0")
+                        let longitude = atof(shop["lng"].string ?? "0")
+                        let restaurantURL = shop["urls"]["pc"].string ?? ""
+                        let restaurant = Restaurant(id: id,
+                                                    name: name,
+                                                    category: category,
+                                                    imageURL: imageURL,
+                                                    latitude: latitude,
+                                                    longitude: longitude,
+                                                    restaurantURL: restaurantURL)
+                        restaurants.append(restaurant)
+                    }
+                    
+                    completionHandler(restaurants, nil)
+                } catch {
+                    completionHandler([], HotpepperError.cannotFetch("レストラン情報を取得できませんでした"))
+                }
+                
+            case .failure(let error):
+                completionHandler([], HotpepperError.cannotFetch(error.localizedDescription))
             }
-            
-            let json = JSON(response.result.value as Any)
-            guard let shops = json["results"]["shop"].array else {
-                let defaultErrorMessage = "レストラン情報を取得できませんでした。"
-                completionHandler([], HotpepperError.cannotFetch(response.result.error?.localizedDescription ?? defaultErrorMessage))
-                return
-            }
-            
-            for shop in shops {
-                let id = shop["id"].string ?? "ID不明"
-                let name = shop["name"].string ?? "ショップ名不明"
-                let category = shop["genre"]["name"].string ?? "カテゴリ不明"
-                let imageURL = shop["photo"]["mobile"]["l"].string ?? ""
-                let latitude = atof(shop["lat"].string ?? "0")
-                let longitude = atof(shop["lng"].string ?? "0")
-                let restaurantURL = shop["urls"]["pc"].string ?? ""
-                let restaurant = Restaurant(id: id, name: name, category: category, imageURL: imageURL, latitude: latitude, longitude: longitude, restaurantURL: restaurantURL)
-                restaurants.append(restaurant)
-            }
-            
-            completionHandler(restaurants, nil)
         }
     }
     
     func fetchRestaurant(id: String, completionHandler: @escaping (Restaurant?, HotpepperError?) -> Void) {
-        let parameters = ["key": self.apiKey, "format": "json", "id": id] as [String : Any]
-        Alamofire.SessionManager.default.requestWithoutCache(baseURL, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil).responseJSON { response in
-            var restaurant: Restaurant?
+        
+        provider.request(.restaurant(id: id)) { result in
             
-            if response.result.isFailure {
-                let defaultErrorMessage = "レストラン情報を取得できませんでした。"
-                completionHandler(nil, HotpepperError.cannotFetch(response.result.error?.localizedDescription ?? defaultErrorMessage))
-                return
+            switch result {
+            case .success(let response):
+                do {
+                    var restaurant: Restaurant?
+                    let json = try JSON(data: response.data)
+                    guard let shop = json["results"]["shop"].array?.first else {
+                        completionHandler(nil, HotpepperError.cannotFetch("レストラン情報を取得できませんでした。"))
+                        return
+                    }
+                    let id = shop["id"].string ?? "ID不明"
+                    let name = shop["name"].string ?? "ショップ名不明"
+                    let category = shop["genre"]["name"].string ?? "カテゴリ不明"
+                    let imageURL = shop["photo"]["mobile"]["l"].string ?? ""
+                    let latitude = atof(shop["lat"].string ?? "0")
+                    let longitude = atof(shop["lng"].string ?? "0")
+                    let restaurantURL = shop["urls"]["pc"].string ?? ""
+                    restaurant = Restaurant(id: id,
+                                            name: name,
+                                            category: category,
+                                            imageURL: imageURL,
+                                            latitude: latitude,
+                                            longitude: longitude,
+                                            restaurantURL: restaurantURL)
+                    
+                    completionHandler(restaurant, nil)
+                } catch {
+                    completionHandler(nil, HotpepperError.cannotFetch("レストラン情報を取得できませんでした。"))
+                }
+            case .failure(let error):
+                completionHandler(nil, HotpepperError.cannotFetch(error.localizedDescription))
             }
-            
-            let json = JSON(response.result.value as Any)
-            guard let shop = json["results"]["shop"].array?.first else {
-                let defaultErrorMessage = "レストラン情報を取得できませんでした。"
-                completionHandler(nil, HotpepperError.cannotFetch(response.result.error?.localizedDescription ?? defaultErrorMessage))
-                return
-            }
-            
-            let id = shop["id"].string ?? "ID不明"
-            let name = shop["name"].string ?? "ショップ名不明"
-            let category = shop["genre"]["name"].string ?? "カテゴリ不明"
-            let imageURL = shop["photo"]["mobile"]["l"].string ?? ""
-            let latitude = atof(shop["lat"].string ?? "0")
-            let longitude = atof(shop["lng"].string ?? "0")
-            let restaurantURL = shop["urls"]["pc"].string ?? ""
-            restaurant = Restaurant(id: id, name: name, category: category, imageURL: imageURL, latitude: latitude, longitude: longitude, restaurantURL: restaurantURL)
-            
-            completionHandler(restaurant, nil)
         }
     }
 }
