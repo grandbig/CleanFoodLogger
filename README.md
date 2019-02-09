@@ -3,8 +3,8 @@
 ## アーキテクチャ
 本プロジェクトでは `Clean Swift` をベースとした `Clean Architecture` を採用しています。  
 
-### Clean Architectureとは
-`Clean Architecture` は `View` / `ViewController` / `Interactor` / `Worker` / `Presenter` / `Model` / `Router` から構成されたアーキテクチャです。  
+### Clean Swiftとは
+`Clean Swift` は `View` / `ViewController` / `Interactor` / `Worker` / `Presenter` / `Model` / `Router` から構成されたアーキテクチャです。  
 各関係性は次の通りです。  
 
 ![Clean Architectureの各関係性](https://user-images.githubusercontent.com/4291518/45251607-ecd0e180-b383-11e8-8b30-5324163ca932.png)
